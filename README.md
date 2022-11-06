@@ -37,3 +37,27 @@ collection.create("how are you?","good, and you?", "hello")
     "how are you?": "good, and you?"
   }
 }
+```
+> the path must be divided by dots
+
+```py
+collection.create("hello", {})
+collection.create("how are you?", {}, "hello")
+collection.create("good, and you?", "me also", "hello.how are you?")
+```
+## Deleting Objects
+> You can see some examples on: [Create Items](https://github.com/einaidev/EasyDB/blob/main/examples/deleteItem.py)
+
+to delete an object you just use the .delete method. see below
+```py
+collection.delete("path")
+```
+
+
+
+
+
+
+
+
+
