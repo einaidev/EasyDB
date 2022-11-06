@@ -33,7 +33,7 @@ collection.create("how are you?","good, and you?", "hello")
 ```
 ```json
 {
-  hello": {
+  "hello": {
     "how are you?": "good, and you?"
   }
 }
