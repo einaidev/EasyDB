@@ -3,6 +3,14 @@ a simple python local database
 
 ## Documentation
 to get started in an easy way... let's start by creating a new instance of the Data Base
+> [Get Start](https://github.com/einaidev/EasyDB#documentation)
+> [Create Objects](https://github.com/einaidev/EasyDB#creating-objects-in-the-database)
+> [Delete Objects](https://github.com/einaidev/EasyDB#deleting-objects)
+> [Filtering Objects](https://github.com/einaidev/EasyDB#filtering-objects)
+> [Find Objects](https://github.com/einaidev/EasyDB#find-objects)
+> [Get Objects](https://github.com/einaidev/EasyDB#get-object)
+> [Save Database](https://github.com/einaidev/EasyDB#save-database)
+> [Load Json](https://github.com/einaidev/EasyDB#load-json)
 
 ```py
 from EasyDB import EasyDB, DB
@@ -54,6 +62,7 @@ collection.delete("path")
 ```
 ## Filtering objects
 > You can see some examples on: [Filtering Items](https://github.com/einaidev/EasyDB/blob/main/examples/filterItem.py)
+
 To get start filtering objects, you must create a filter, lambda or a normal def
 ```py
 def filter(arg): #receive a db object
@@ -77,6 +86,7 @@ filtering method returns 2 attributes. path and value
 
 ## Find objects
 > You can see some examples on: [Finding Items](https://github.com/einaidev/EasyDB/blob/main/examples/findItem.py)
+
 Find item is like the filtering method... but returns only one value
 
 ```py
@@ -86,6 +96,7 @@ print(result.path, result.value)
 
 ## Get object
 > You can see some examples on: [Getting Items](https://github.com/einaidev/EasyDB/blob/main/examples/getItem.py)
+
 To get a item, you can just type:
 ```py
 print(collection.get(path if has))
@@ -93,6 +104,7 @@ print(collection.get(path if has))
 
 ## Save database
 > You can see some examples on: [Save Database](https://github.com/einaidev/EasyDB/blob/main/examples/saveDatabase.py)
+
 to save your database, you jsut type
 ```py
 collection.save()
@@ -100,6 +112,7 @@ collection.save()
 
 ## Load json
 > You can see some examples on: [Load Json](https://github.com/einaidev/EasyDB/blob/main/examples/loadJson.py)
+
 to load you json file to db you just type
 ```py
 collection.load("<path> or <file stream>", mode="set"| "append" )
