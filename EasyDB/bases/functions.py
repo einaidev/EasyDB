@@ -41,9 +41,14 @@ class DataBase_Functions:
         class_.save__Backup()
 
     @Mode("!autoSave",_.modes)
-    def load(fp:str | io.BufferedReader, class_) -> None:
+    def load(fp:str | io.BufferedReader, class_, mode = "set") -> None:
         try:
-            class_.json = json.load(fp) if not isinstance(fp,str) else json.load(open(fp,"r"))
+            if mode == "set":
+                class_.json = json.load(fp) if not isinstance(fp,str) else json.load(open(fp,"r"))
+            elif mode == "append":
+                class_.json = Load(class_.json, json.load(fp) if not isinstance(fp,str) else json.load(open(fp,"r"))).load
+            else:
+                raise ValueError(f"{mode!r} is not a valid mode")
         except Exception as e:
             if isinstance(e, io.UnsupportedOperation):
                 raise ValueError("Unsuported mode, please, enable read mode\nopen(path, \"r\")")
@@ -51,10 +56,15 @@ class DataBase_Functions:
                 raise e
 
     @Mode("autoSave",_.modes)
-    def load(fp:str | io.BufferedReader, class_, loc) -> None:
+    def load(fp:str | io.BufferedReader, class_, loc, mode = "set") -> None:
         try:
             class_.save__Backup()
-            class_.json = json.load(fp) if not isinstance(fp,str) else json.load(open(fp,"r"))
+            if mode == "set":
+                class_.json = json.load(fp) if not isinstance(fp,str) else json.load(open(fp,"r"))
+            elif mode == "append":
+                class_.json = Load(class_.json, json.load(fp) if not isinstance(fp,str) else json.load(open(fp,"r"))).load
+            else:
+                raise ValueError(f"{mode!r} is not a valid mode")
             json.dump(class_.json, open(loc,"w"), indent=4)
         except Exception as e:
             if isinstance(e, io.UnsupportedOperation):
@@ -98,7 +108,36 @@ class filter:
     def path(self):
         return self._path
 
-
+class Load:
+    def __init__(self, oldJson, newJson) -> None:
+        self.oldJson = oldJson
+        self.newJeson = newJson
+    
+    def updater(self,obj,obj2):
+        if isinstance(obj2, dict):
+            for k,v in obj2.items():
+                if isinstance(v,dict):
+                    if not k in obj:
+                        obj[k] = v
+                    self.updater(obj[k],v)
+                elif isinstance(v,list):
+                    if not k in obj:
+                        obj[k] = v
+                    else:
+                        for i,j in enumerate(v):
+                            if not j in obj[k]:
+                                obj[k].append(j)
+                else:
+                    if not k in obj:
+                        obj[k] = v
+                    else:
+                        if not obj[k] == v:
+                            obj[k] = v
+        else:
+            raise ValueError("only dict is valid")
+        return self.oldJson
+    @property
+    def load(self) -> dict: return self.updater(self.oldJson, self.newJeson)      
 class FindMethod:
     def __init__(self,_json) -> None:
         self.json = _json

@@ -102,7 +102,7 @@ collection.save()
 > You can see some examples on: [Load Json](https://github.com/einaidev/EasyDB/blob/main/examples/loadJson.py)
 to load you json file to db you just type
 ```py
-collection.load("<path> or <file stream>")
+collection.load("<path> or <file stream>", mode="set"| "append" )
 ```
 
 ## Miscs
@@ -111,5 +111,5 @@ however when trying to save, it will corrupt your database
 
 # Progres
 - [x] sync and local db
-- [ ] load modes
+- [x] load modes
 - [ ] async DB

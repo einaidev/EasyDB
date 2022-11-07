@@ -76,15 +76,15 @@ class DB:
                 if i["name"] == "delete":
                     i["function"](path,self,_[name]_,"_[temp]_/{}.json")  
 
-    def load(self,path):
+    def load(self,path, mode):
         if not self.autosave:
             for i in self.modes["!autoSave"]:
                 if i["name"] == "load":
-                    i["function"](path,self)
+                    i["function"](path,self,mode)
         else:
             for i in self.modes["autoSave"]:
                 if i["name"] == "load":
-                    i["function"](path,self,_[name]_)  
+                    i["function"](path,self,_[name]_,mode)  
 
     def getPath(self,path=...):
         return get_path(path)
