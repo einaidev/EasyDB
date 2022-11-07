@@ -1,5 +1,6 @@
 # EasyDB
 a simple python local database
+![EasyDB](https://github.com/einaidev/EasyDB/blob/main/EasyDBLogo.png)
 
 ## Documentation
 to get started in an easy way... let's start by creating a new instance of the Data Base
