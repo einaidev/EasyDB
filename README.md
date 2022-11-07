@@ -4,12 +4,19 @@ a simple python local database
 ## Documentation
 to get started in an easy way... let's start by creating a new instance of the Data Base
 > [Get Start](https://github.com/einaidev/EasyDB#documentation)
+
 > [Create Objects](https://github.com/einaidev/EasyDB#creating-objects-in-the-database)
+
 > [Delete Objects](https://github.com/einaidev/EasyDB#deleting-objects)
+
 > [Filtering Objects](https://github.com/einaidev/EasyDB#filtering-objects)
+
 > [Find Objects](https://github.com/einaidev/EasyDB#find-objects)
+
 > [Get Objects](https://github.com/einaidev/EasyDB#get-object)
+
 > [Save Database](https://github.com/einaidev/EasyDB#save-database)
+
 > [Load Json](https://github.com/einaidev/EasyDB#load-json)
 
 ```py
