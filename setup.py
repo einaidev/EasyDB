@@ -9,7 +9,7 @@ long_description = (this_directory / "README.md").read_text()
 setup(
     ext_modules=cythonize("./EasyDB/C/cmiscs.pyx"),
     name="EasyDB.py",
-    version="1.2.2",
+    version="1.2.3",
     author="Nando Msc",
     packages=find_packages(),
     requires=["Cython"],

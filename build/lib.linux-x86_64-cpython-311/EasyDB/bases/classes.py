@@ -63,7 +63,7 @@ class DB:
         """
         ...
 
-    def load(self, fp:str | io.BufferedReader, mode: str = "set") -> None:
+    def load(self, fp:str | io.BufferedReader) -> None:
         """Load
         the "load" method is responsible for load a json in the database    
 

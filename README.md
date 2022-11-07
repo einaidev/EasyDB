@@ -91,10 +91,25 @@ To get a item, you can just type:
 print(collection.get(path if has))
 ```
 
+## Save database
+> You can see some examples on: [Save Database](https://github.com/einaidev/EasyDB/blob/main/examples/saveDatabase.py)
+to save your database, you jsut type
+```py
+collection.save()
+```
+
+## Load json
+> You can see some examples on: [Load Json](https://github.com/einaidev/EasyDB/blob/main/examples/saveDatabase.py)
+to load you json file to db you just type
+```py
+collection.load("<path> or <file stream>")
+```
+
 ## Miscs
 if autoSave is off... you can store any type of object.
 however when trying to save, it will corrupt your database
 
 # Progres
 - [x] sync and local db
+- [ ] load modes
 - [ ] async DB
