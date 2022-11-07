@@ -96,6 +96,6 @@ print(collection.get(path if has))
 if autoSave is off... you can store any type of object.
 however when trying to save, it will corrupt your database
 
-# Progres
+# Progress
 - [x] sync and local db
 - [ ] async DB
