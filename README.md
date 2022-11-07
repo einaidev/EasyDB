@@ -99,7 +99,7 @@ collection.save()
 ```
 
 ## Load json
-> You can see some examples on: [Load Json](https://github.com/einaidev/EasyDB/blob/main/examples/saveDatabase.py)
+> You can see some examples on: [Load Json](https://github.com/einaidev/EasyDB/blob/main/examples/loadJson.py)
 to load you json file to db you just type
 ```py
 collection.load("<path> or <file stream>")
