@@ -126,6 +126,7 @@ collection.load("<path> or <file stream>", mode="set"| "append" )
 ```
 ### Modes
 apppend: append data to database
+
 set: sets the data from de json as database 
 
 ## Miscs
