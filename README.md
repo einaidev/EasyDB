@@ -104,6 +104,9 @@ to load you json file to db you just type
 ```py
 collection.load("<path> or <file stream>", mode="set"| "append" )
 ```
+### Modes
+apppend: append data to database
+set: sets the data from de json as database 
 
 ## Miscs
 if autoSave is off... you can store any type of object.
