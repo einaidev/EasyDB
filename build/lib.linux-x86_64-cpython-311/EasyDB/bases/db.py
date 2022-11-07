@@ -75,6 +75,17 @@ class DB:
             for i in self.modes["autoSave"]:
                 if i["name"] == "delete":
                     i["function"](path,self,_[name]_,"_[temp]_/{}.json")  
+
+    def load(self,path):
+        if not self.autosave:
+            for i in self.modes["!autoSave"]:
+                if i["name"] == "load":
+                    i["function"](path,self)
+        else:
+            for i in self.modes["autoSave"]:
+                if i["name"] == "load":
+                    i["function"](path,self,_[name]_)  
+
     def getPath(self,path=...):
         return get_path(path)
 
@@ -83,6 +94,10 @@ class DB:
 
     def find(self,func):
         return self.filter(func)[0]
+
+    def save(self,):
+        json.dump(self.json,open(_[name]_, "w"), indent=4)
+        self.save__Backup()
 
     def save__Backup(self,obj=None):
         if os.listdir("_[temp]_").__len__() == 0:

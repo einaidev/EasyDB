@@ -1,6 +1,5 @@
 # EasyDB
 a simple python local database
-![EasyDB](https://github.com/einaidev/EasyDB/blob/main/EasyDBLogo.png)
 
 ## Documentation
 to get started in an easy way... let's start by creating a new instance of the Data Base
@@ -91,25 +90,11 @@ To get a item, you can just type:
 ```py
 print(collection.get(path if has))
 ```
-## Save Data Base
-> You can see some examples on: [Getting Items](https://github.com/einaidev/EasyDB/blob/main/examples/saveDatabase.py)
-To save your database, you just type
-```py
-collection.save()
-```
-
-## Load Json
-> You can see some examples on: [Getting Items](https://github.com/einaidev/EasyDB/blob/main/examples/loadJson.py)
-To load another json file to the DB, you just type
-
-```py
-collection.load(<file path> or <file stream>, mode = "set" or "append")
-```
 
 ## Miscs
 if autoSave is off... you can store any type of object.
 however when trying to save, it will corrupt your database
 
-# Progress
+# Progres
 - [x] sync and local db
 - [ ] async DB

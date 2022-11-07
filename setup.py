@@ -9,7 +9,7 @@ long_description = (this_directory / "README.md").read_text()
 setup(
     ext_modules=cythonize("./EasyDB/C/cmiscs.pyx"),
     name="EasyDB.py",
-    version="1.2.0",
+    version="1.2.2",
     author="Nando Msc",
     packages=find_packages(),
     requires=["Cython"],
@@ -24,5 +24,6 @@ setup(
         "Home Page": "https://github.com/einaidev/EasyDB",
         "GitHub": "https://github.com/einaidev",
         "Documentation": "https://github.com/einaidev/EasyDB/blob/main/README.md"
-    }
+    },
+    description="A very easy database but very good :)"
 )

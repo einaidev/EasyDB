@@ -9,7 +9,6 @@ class EasyDB:
         origin = sys.modules['__main__'].__file__
         __ = []
         ([(__.append(x) if os.path.dirname(os.path.abspath(origin)) in sys.modules[x].__file__.__str__() else ...)if "__file__" in sys.modules[x].__dict__ else ... for x in sys.modules])
-        _path = ""
         _path = sys.modules[__[-1]].__file__ if __.__len__() > 1 else origin
 
         _:CollectionModel =  CollectionModel(_path.split("\\")[-1].replace(".py","") 

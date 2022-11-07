@@ -1,5 +1,5 @@
 from .decorators import Mode
-import json, os
+import json, os, io
 
 class _:
     modes ={}
@@ -39,7 +39,29 @@ class DataBase_Functions:
                 w.write("{}")
                 
         class_.save__Backup()
-    
+
+    @Mode("!autoSave",_.modes)
+    def load(fp:str | io.BufferedReader, class_) -> None:
+        try:
+            class_.json = json.load(fp) if not isinstance(fp,str) else json.load(open(fp,"r"))
+        except Exception as e:
+            if isinstance(e, io.UnsupportedOperation):
+                raise ValueError("Unsuported mode, please, enable read mode\nopen(path, \"r\")")
+            else:
+                raise e
+
+    @Mode("autoSave",_.modes)
+    def load(fp:str | io.BufferedReader, class_, loc) -> None:
+        try:
+            class_.save__Backup()
+            class_.json = json.load(fp) if not isinstance(fp,str) else json.load(open(fp,"r"))
+            json.dump(class_.json, open(loc,"w"), indent=4)
+        except Exception as e:
+            if isinstance(e, io.UnsupportedOperation):
+                raise ValueError("Unsuported mode, please, enable read mode\nopen(path, \"r\")")
+            else:
+                raise e
+
     @Mode("!autoSave", _.modes)
     def delete(path,class_):
         _path = class_.getPath(path) 
@@ -87,7 +109,8 @@ class FindMethod:
             if func(i[-1]) and isinstance(func(i[-1]),bool):
                 _.append(filter("".join([f"[{x!r}]"for x in i[:-1]]), i[-1]))
             else:
-                raise ValueError("The function dont return a boolean")
+                if not isinstance(func(i[-1]),bool):
+                    raise ValueError("The function dont return a boolean")
         return _
         
     def Walk_(self,val,pre=None):
