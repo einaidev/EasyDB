@@ -65,7 +65,7 @@ class DB:
             exec("global a; a = self.json{0}".format(_path if not path == "" else path))
             global a
             return a
-        exception:
+        except:
             return None
 
         
