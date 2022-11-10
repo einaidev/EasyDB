@@ -61,9 +61,12 @@ class DB:
 
     def get(self,path=""):
         _path = self.getPath(path)
-        exec("global a; a = self.json{0}".format(_path if not path == "" else path))
-        global a
-        return a
+        try:
+            exec("global a; a = self.json{0}".format(_path if not path == "" else path))
+            global a
+            return a
+        exception:
+            return None
 
         
     def delete(self,path):
